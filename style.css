@@ -1,7 +1,27 @@
+@font-face {
+  font-family: "Plain Light";
+  src: url(./fonts/plain-regular-webfont.ttf);
+}
+@font-face {
+  font-family: "Plain Light";
+  src: url(./fonts/plain-light-webfont.ttf);
+}
+
+@font-face {
+  font-family: "silk serif";
+  src: url(./fonts/silkserif-regularitalic-webfont.ttf);
+}
+
+@font-face {
+  font-family: "silk serif";
+  src: url(./fonts/silkserif-lightitalic-webfont.ttf);
+}
+
 
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Plain Light";
   color: #fff;
@@ -14,6 +34,13 @@ body {
 }
 body{
   overflow-x:hidden;
+}
+
+.mousefollower{
+  border: 2px solid #fff;
+  background-color: rgb(255 , 255, 255);
+  scale:2;
+  mix-blend-mode: difference;
 }
 
 #crsr{
@@ -78,7 +105,7 @@ body{
 
 }
 
-@keyframes loaderAnime {
+@-webkit-keyframes loaderAnime {
   0% {
     font-family: "plain light";
     -webkit-text-stroke: 1px #fff;
@@ -105,6 +132,40 @@ body{
     -webkit-text-stroke: 1px #fff;
     font-weight: 500;
     color:transparent;
+    opacity: 0;
+  }
+}
+
+@keyframes loaderAnime {
+  0% {
+    font-family: "plain light";
+    -webkit-text-stroke: 1px #fff;
+    color: #fff;
+    font-weight: 500;
+    opacity: 1;
+  }
+
+  48% {
+    font-family: "plain light";
+    -webkit-text-stroke: 1px #fff;
+    color: #fff;
+    font-weight: 500;
+    opacity: 0;
+  }
+
+  50% {
+    font-family: "silk serif";
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 500;
+    color: transparent;
+    opacity: 1;
+  }
+
+  100% {
+    font-family: "silk serif";
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 500;
+    color: transparent;
     opacity: 0;
   }
 }
@@ -169,15 +230,10 @@ body{
   position: absolute;
   font-size:3vw;
   font-weight: 100;
-  font-family:"silk sarif";
+  font-family:"silk serif";
   left: 20%;
   top:29%;
 }
-/*.hero h2, .hero h3 {
-  font-size: 7.2vw;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 7.2vw;}*/
 
 .hero h2{
   font-size: 7.2vw;
@@ -212,7 +268,7 @@ body{
   background-image: url(https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview.jpg);
 }
 
-#video-container  img{
+#video-container  video{
   position:  absolute;
   height:100%;
   width:100%;
@@ -220,35 +276,84 @@ body{
   top : 0;
 }
 
-#video-container video{
-  height: 100%;
-  width: 100%;
-  object-fit:cover;
-}
-
-#video-cursor{
-  background-color: #FFA63D;
-  height: 9vw;
-  width:9vw;
-  border-radius:50%;
-  position:absolute;
-  top:-15%;
-  left:70%;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  z-index: 999;
-}
-
-#video-cursor  {
+#video-cursor i {
   font-size: 2vw;
 }
-
 #page3{
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  background-color: rgb(61, 61, 61);
+  /*background-color: rgb(61, 61, 61);*/
   position: relative;
+  padding: 17vh 2vw;
+  margin-bottom: 20vh;
+  
+}
+#page3  h1{
+  font-size: 7vw;
+  text-transform: uppercase;
+  position: relative;
+  margin-left: 28vw;
+}
+
+#page3 h1::before{
+  content: "02";
+  position: absolute;
+  font-size:3vw;
+  font-weight: 100;
+  font-family:"silk sarif";
+  left: -12%;
+  top:8%;
+}
+#page3 .underline{
+  margin-left:28vw;
+}
+
+#image-div-container{
+ /* background-color: red;*/
+  padding: 1vw;
+  position: relative;
+  display:flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap:wrap;
+}
+#image-div{
+  height: 38vw;
+  position:relative;
+  overflow: hidden;
+  width:27vw;
+  flex-shrink: 0;
+  margin: 2vw;
+  /*background-color:blue;*/
+}
+.image-div:nth-child(2){
+height:30vw;
+width: 22vw;
+}
+
+.image-div img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.page3-circle1, .page3-circle2{
+  height:23vw;
+  width:23vw;
+  color: 2px solid  #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page3-circle1 svg, .page3-circle2 svg{
+  height: 30%;
+}
+
+.page3-circle2{
+  margin-top: 20vh;
+  margin-left: 10vw;
+  transform: rotate(-45deg);
 }
 
 #page4{
@@ -270,12 +375,12 @@ body{
   position: relative;
 }
 
-#page4 h1::before{
+#page4-content h1::before{
   content: "03";
   position: absolute;
   font-size:3vw;
   font-weight: 100;
-  font-family:"silk sarif";
+  font-family:"silk serif";
   left: -12%;
   top:8%;
 }
@@ -295,6 +400,8 @@ body{
 
 #page4-flex{
   display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
 }
 
 #page4-flex img{
@@ -338,10 +445,8 @@ body{
 #page5{
   min-height: 100vh;
   width: 100%;
-  padding: relative;
   background-color: #111;
 }
-
 .elem{
   white-space: nowrap;
   overflow-x:hidden;
@@ -362,15 +467,27 @@ body{
   animation-iteration-count: infinite;
 }
 
-@keyframes anime {
+@-webkit-keyframes anime {
   from{
     transform: translateX(0);
   }
   to{
-    transfrom: translateX(calc(-100% -20px));
+    -webkit-transform: translate(0);
+    transform: translateX(calc(-100% -20px));
 
   }
 }
+@keyframes anime {
+  from{
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  to{
+    -webkit-transform: translate(calc(-100% -20px));
+    transform: translateX(calc(100% -20px));
+  }
+}
+
 
 .elem2{
   white-space: nowrap;
@@ -385,6 +502,8 @@ body{
   text-transform: uppercase;
   color:transparent;
   display: inline-block;
+  -webkit-transform: translateX(calc(-100% - 20px));
+  -ms-transform: translateX(calc(-100% - 20px));
   transform: translateX(calc(100% -20px));
   animation-name: anime;
   animation-duration:12s;
@@ -403,7 +522,6 @@ body{
   font-family: "silk serif";
   color :transparent;
 }
-
 #footer{
   height:85vh;
   width:100%;
@@ -417,12 +535,16 @@ body{
   text-transform: uppercase;
   position: relative;
 }
+
+
+
+
 #footer h1::before{
   content: "04";
   position: absolute;
   font-size:3vw;
   font-weight: 100;
-  font-family:"silk sarif";
+  font-family:"silk serif";
   left: -12%;
   top:8%;
 }
@@ -453,7 +575,12 @@ body{
   font-weight:500;
   /*margin-bottom: 1.5vw;*/
 }
+
 #footer>h5{
   font-weight: 500;
   font-size: 1vw;
+}
+._canvas_container{
+  z-index: 99999;
+  pointer-events: none;
 }
